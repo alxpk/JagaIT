@@ -119,7 +119,7 @@ export default function TasksIndex({ tasks = [], assets = [], filters = {}, metr
 
     return (
         <AuthenticatedLayout>
-            <Head title={tr('Tasks - IT Support Tracker', 'Tugasan - Sistem Jejak Sokongan IT')} />
+            <Head title={tr('Incident List - IT Support Tracker', 'Senarai Insiden - Sistem Jejak Sokongan IT')} />
 
             <div className="flex flex-col w-full gap-space-lg">
                 {/* Header row */}
@@ -130,7 +130,7 @@ export default function TasksIndex({ tasks = [], assets = [], filters = {}, metr
                         </div>
                         <div>
                             <h1 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-                                {tr('Tasks', 'Tugasan')}
+                                {tr('Incident List', 'Senarai Insiden')}
                             </h1>
                             <p className="font-body-sm text-body-sm text-secondary">
                                 {tr(
@@ -149,14 +149,13 @@ export default function TasksIndex({ tasks = [], assets = [], filters = {}, metr
                             <span className="material-symbols-outlined text-[16px] text-secondary">file_download</span>
                             <span>{tr('Export', 'Eksport')}</span>
                         </button>
-                        <button
-                            type="button"
-                            onClick={() => setShowNewTaskModal(true)}
+                        <Link
+                            href={route('tasks.create')}
                             className="h-8 px-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary font-body-md text-body-md flex items-center gap-space-xs shadow-sm transition-colors cursor-pointer"
                         >
                             <span className="material-symbols-outlined text-[18px]">add</span>
-                            <span>{tr('Log new task', 'Rekod tugasan baharu')}</span>
-                        </button>
+                            <span>{tr('Register Incident', 'Daftar Insiden')}</span>
+                        </Link>
                     </div>
                 </div>
 

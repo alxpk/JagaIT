@@ -24,6 +24,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/tasks', [SupportTaskController::class, 'index'])->name('tasks.index');
+    Route::get('/tasks/create', [SupportTaskController::class, 'create'])->name('tasks.create');
     Route::post('/tasks', [SupportTaskController::class, 'store'])->name('tasks.store');
     Route::get('/tasks/{task}', [SupportTaskController::class, 'show'])->name('tasks.show');
     Route::patch('/tasks/{task}', [SupportTaskController::class, 'update'])->name('tasks.update');

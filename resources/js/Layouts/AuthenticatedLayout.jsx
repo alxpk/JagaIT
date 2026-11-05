@@ -9,40 +9,40 @@ export default function AuthenticatedLayout({ header, children }) {
 
     const navItems = [
         {
-            name: tr('Dashboard', 'Papan Pemuka'),
+            name: tr('Dashboard', 'Dashboard'),
             href: route('dashboard'),
             icon: 'dashboard',
             active: currentUrl.startsWith('/dashboard'),
         },
         {
-            name: tr('Tasks', 'Tugasan'),
+            name: tr('Register Incident', 'Daftar Insiden'),
+            href: route('tasks.create'),
+            icon: 'add_task',
+            active: currentUrl.startsWith('/tasks/create'),
+        },
+        {
+            name: tr('Incident List', 'Senarai Insiden'),
             href: route('tasks.index'),
             icon: 'checklist',
-            active: currentUrl.startsWith('/tasks'),
+            active: currentUrl.startsWith('/tasks') && !currentUrl.startsWith('/tasks/create'),
         },
         {
-            name: tr('Assets', 'Aset'),
-            href: route('assets.index'),
-            icon: 'devices',
-            active: currentUrl.startsWith('/assets'),
+            name: tr('Report', 'Laporan'),
+            href: route('reports.index'),
+            icon: 'bar_chart',
+            active: currentUrl.startsWith('/reports'),
         },
         {
-            name: tr('Maintenance', 'Penyelenggaraan'),
-            href: route('maintenance.index'),
-            icon: 'build',
-            active: currentUrl.startsWith('/maintenance'),
-        },
-        {
-            name: tr('Knowledge base', 'Pangkalan Ilmu'),
+            name: tr('Knowledge Base', 'Pangkalan Ilmu'),
             href: route('knowledge-base.index'),
             icon: 'menu_book',
             active: currentUrl.startsWith('/knowledge-base'),
         },
         {
-            name: tr('Reports', 'Laporan'),
-            href: route('reports.index'),
-            icon: 'bar_chart',
-            active: currentUrl.startsWith('/reports'),
+            name: tr('Profile', 'Profil'),
+            href: route('profile.edit'),
+            icon: 'person',
+            active: currentUrl.startsWith('/profile'),
         },
     ];
 

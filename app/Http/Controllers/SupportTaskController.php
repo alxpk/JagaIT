@@ -87,6 +87,17 @@ class SupportTaskController extends Controller
         ]);
     }
 
+    public function create(): Response
+    {
+        $assets = Asset::query()
+            ->orderBy('asset_tag')
+            ->get(['id', 'asset_tag', 'model', 'department', 'type']);
+
+        return Inertia::render('Tasks/Create', [
+            'assets' => $assets,
+        ]);
+    }
+
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
